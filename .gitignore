@@ -1,0 +1,7 @@
+*.ld
+F1_Header/
+*.launch
+*.project
+*.cproject
+*.settings
+Debug/
