@@ -43,31 +43,31 @@ int main(void) {
 	GPIOB->CRH |= 0x00000222;
 	/* ------------------------ */
 
-	/* turn off leds initials */
+	/* turn off led initials */
 	GPIOC->BSRR = (1 << 13);
-	GPIOB->BRR = (1 << 8) | (1 << 9) | (1 << 10);
+	GPIOB->BRR = (1 << 8) | (1 << 9);
 	/* --------------------- */
 
 	while(1) {
 
-		if(!(GPIOA->IDR & (1 << 8))){
-			GPIOC->BRR = (1 << 13);
-		} else {
+		if(GPIOA->IDR & (1 << 8)){
 			GPIOC->BSRR = (1 << 13);
+		} else {
+			GPIOC->BRR = (1 << 13);
 		}
 
 
 		if(GPIOA->IDR & (1 << 9)) {
-			GPIOB->BSRR = (1 << 9);
+			GPIOB->BRR = (1 << 8);
 		} else {
-			GPIOB->BRR = (1 << 9);
+			GPIOB->BSRR = (1 << 8);
 		}
 
 
 		if (GPIOA->IDR & (1 << 10)) {
-			GPIOB->BSRR = (1 << 10);
+			GPIOB->BRR = (1 << 9);
 		} else {
-			GPIOB->BRR = (1 << 10);
+			GPIOB->BSRR = (1 << 9);
 		}
 	}
 }
