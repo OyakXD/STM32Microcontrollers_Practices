@@ -127,11 +127,6 @@ int main(void)
 					passo = 0;
 					break;
 			}
-
-			GPIOA->ODR ^= ~(1 << 5);
-			GPIOA->ODR ^= ~(1 << 6);
-			GPIOA->ODR ^= ~(1 << 7);
-
 		}
 	}
 }
